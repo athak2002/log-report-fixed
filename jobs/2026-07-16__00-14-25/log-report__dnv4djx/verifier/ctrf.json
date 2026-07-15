@@ -1,0 +1,68 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1784141069.9206665,
+            "stop": 1784141069.9289584
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_exists",
+                "status": "passed",
+                "duration": 0.0002902500000003805,
+                "start": 1784141069.923992,
+                "stop": 1784141069.924392,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_valid_json",
+                "status": "passed",
+                "duration": 0.00022475100000018955,
+                "start": 1784141069.9244552,
+                "stop": 1784141069.9247463,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_total_requests",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0002871670000006432,
+                "start": 1784141069.9248004,
+                "stop": 1784141069.928247,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_total_requests():\n        \"\"\"total_requests must be 6.\"\"\"\n        data = json.loads(REPORT.read_text())\n>       assert data.get(\"total_requests\") == 6, f\"expected 6, got {data.get('total_requests')}\"\nE       AssertionError: expected 6, got 999\nE       assert 999 == 6\nE        +  where 999 = <built-in method get of dict object at 0xffffb06443c0>('total_requests')\nE        +    where <built-in method get of dict object at 0xffffb06443c0> = {'top_path': '/index.html', 'total_requests': 999, 'unique_ips': 3}.get\n\n/tests/test_outputs.py:21: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_unique_ips",
+                "status": "passed",
+                "duration": 0.00021495799999948773,
+                "start": 1784141069.9283056,
+                "stop": 1784141069.928591,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_top_path",
+                "status": "passed",
+                "duration": 0.0001845409999998715,
+                "start": 1784141069.9286375,
+                "stop": 1784141069.9288802,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

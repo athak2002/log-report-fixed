@@ -1,0 +1,108 @@
+{
+    "id": "cbe88b30-be23-43c6-b8eb-235533972b1d",
+    "task_name": "dynamo/log-report",
+    "trial_name": "log-report__dnv4djx",
+    "trial_uri": "file:///Users/athakgoyal/handshake/log-report/jobs/2026-07-16__00-14-25/log-report__dnv4djx",
+    "task_id": {
+        "path": "."
+    },
+    "source": null,
+    "task_checksum": "5d6b2d4ff983d1aab4f3a1cc9de960fc92793787b0dab273498d3bdeb2d54418",
+    "config": {
+        "task": {
+            "path": ".",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "log-report__dnv4djx",
+        "trials_dir": "jobs/2026-07-16__00-14-25",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "da604e6f-c705-4db2-b2ce-0e5e4eda9e8d"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-07-15T18:44:26.214526Z",
+    "finished_at": "2026-07-15T18:44:40.493293Z",
+    "environment_setup": {
+        "started_at": "2026-07-15T18:44:26.240192Z",
+        "finished_at": "2026-07-15T18:44:29.026799Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-07-15T18:44:29.026884Z",
+        "finished_at": "2026-07-15T18:44:29.026947Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-07-15T18:44:29.027031Z",
+        "finished_at": "2026-07-15T18:44:29.247828Z"
+    },
+    "verifier": {
+        "started_at": "2026-07-15T18:44:29.645035Z",
+        "finished_at": "2026-07-15T18:44:29.957756Z"
+    },
+    "step_results": null
+}

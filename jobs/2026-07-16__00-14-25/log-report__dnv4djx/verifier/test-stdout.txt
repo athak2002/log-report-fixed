@@ -1,0 +1,29 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 5 items
+
+../tests/test_outputs.py ..F..                                           [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+        """total_requests must be 6."""
+        data = json.loads(REPORT.read_text())
+>       assert data.get("total_requests") == 6, f"expected 6, got {data.get('total_requests')}"
+E       AssertionError: expected 6, got 999
+E       assert 999 == 6
+E        +  where 999 = <built-in method get of dict object at 0xffffb06443c0>('total_requests')
+E        +    where <built-in method get of dict object at 0xffffb06443c0> = {'top_path': '/index.html', 'total_requests': 999, 'unique_ips': 3}.get
+
+/tests/test_outputs.py:21: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_report_exists
+PASSED ../tests/test_outputs.py::test_report_valid_json
+PASSED ../tests/test_outputs.py::test_unique_ips
+PASSED ../tests/test_outputs.py::test_top_path
+FAILED ../tests/test_outputs.py::test_total_requests - AssertionError: expect...
+========================= 1 failed, 4 passed in 0.01s ==========================
