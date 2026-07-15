@@ -45,7 +45,7 @@ Ensures that the task can be successfully solved and verified:
 ```bash
 harbor run -p . -a oracle
 ```
-* **Expected Output:**
+* **Expected Output (Success Case):**
   ```text
   adhoc • oracle
   ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -60,13 +60,22 @@ harbor run -p . -a oracle
   │ 1.0    │     1 │
   └────────┴───────┘
   ```
+  * **Pytest Verification Summary:**
+  ```text
+  PASSED test_outputs.py::test_report_exists
+  PASSED test_outputs.py::test_report_valid_json
+  PASSED test_outputs.py::test_total_requests
+  PASSED test_outputs.py::test_unique_ips
+  PASSED test_outputs.py::test_top_path
+  ============================== 5 passed in 0.01s ===============================
+  ```
 
 ### 2. Verification of a Non-functional Solution (Nop Agent)
-Ensures that the verifier correctly rejects incorrect or empty solutions (preventing false passes):
+Ensures that the verifier correctly rejects empty or non-existent files:
 ```bash
 harbor run -p . --agent nop
 ```
-* **Expected Output:**
+* **Expected Output (Failure Case):**
   ```text
   adhoc • nop
   ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -80,6 +89,29 @@ harbor run -p . --agent nop
   ┡━━━━━━━━╇━━━━━━━┩
   │ 0.0    │     1 │
   └────────┴───────┘
+  ```
+  * **Pytest Verification Summary:**
+  ```text
+  FAILED test_outputs.py::test_report_exists - AssertionError: no report.json found
+  FAILED test_outputs.py::test_report_valid_json - FileNotFoundError
+  FAILED test_outputs.py::test_total_requests - FileNotFoundError
+  FAILED test_outputs.py::test_unique_ips - FileNotFoundError
+  FAILED test_outputs.py::test_top_path - FileNotFoundError
+  ============================== 5 failed in 0.04s ===============================
+  ```
+
+### 3. Verification of a Broken/Incorrect Solution
+If the agent writes an output file with incorrect statistics (e.g. `total_requests = 999`), the verifier correctly scores a reward of `0.0`.
+* **Example Pytest Failure Trace:**
+  ```text
+  _____________________________ test_total_requests ______________________________
+      def test_total_requests():
+          """total_requests must be 6."""
+          data = json.loads(REPORT.read_text())
+  >       assert data.get("total_requests") == 6, f"expected 6, got {data.get('total_requests')}"
+  E       AssertionError: expected 6, got 999
+  E       assert 999 == 6
+  ========================= 1 failed, 4 passed in 0.01s ==========================
   ```
 
 ---
